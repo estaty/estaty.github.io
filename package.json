@@ -1,0 +1,36 @@
+{
+  "name": "estaty-frontend",
+  "version": "0.0.0",
+  "description": "Real estate data for all properties in town.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "estate",
+    "estaty",
+    "properties",
+    "coffee"
+  ],
+  "author": "Haralan Dobrev <hkdobrev@gmail.com>",
+  "license": "MIT",
+  "homepage": "http://estaty.org",
+  "bugs": {
+    "url": "https://github.com/estaty/estaty-frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/estaty/estaty-frontend.git"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3",
+    "coffeelint": "^1.10.1",
+    "connect-modrewrite": "^0.8.1",
+    "grunt": "^0.4.5",
+    "grunt-coffeelint": "0.0.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
