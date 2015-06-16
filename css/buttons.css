@@ -1,0 +1,4 @@
+label.btn input[type="checkbox"], label.btn input[type="radio"] {
+  margin-top: 3px;
+  vertical-align: top;
+}

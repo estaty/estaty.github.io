@@ -1,0 +1,15 @@
+.navbar-estaty {
+  border: 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 0;
+}
+
+.navbar-estaty .nav > li > a:hover,
+.navbar-estaty .nav > li > a:focus {
+  background-color: #e6e6e6;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: 400;
+}

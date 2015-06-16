@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Estaty | Real estate data for all properties in town</title>
+  <meta name="description"
+   content="Estaty is a platform for all home owners and renters to share data about their homes prices.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <style>
+    .header, .header-main {
+      position: relative;
+      z-index: 2;
+    }
+    .cover {
+      background-image: url('img/estaty-open-real-estate-done-right-small.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    @media screen and (min-width: 1441px) {
+      .cover {
+        background-image: url('img/estaty-open-real-estate-done-right.jpg');
+      }
+    }
+  </style>
+  <link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <style>
+    .jumbotron-no-bg {
+      background-color: transparent;
+      background: none;
+    }
+  </style>
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/jumbotron.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/overlay.css">
+  <link rel="stylesheet" href="css/buttons.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-main">
+      <nav class="navbar navbar-estaty">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+             data-toggle="collapse" data-target="#nav-main">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Estaty</a>
+          </div>
+          <div class="collapse navbar-collapse" id="nav-main">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#submit">Submit your place</a></li>
+              <li><a href="">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="jumbotron jumbotron-no-bg text-center">
+        <hgroup>
+          <h1>Real estate done right</h1>
+          <h2 class="h3">Explore all properties. Just list your own!</h2>
+        </hgroup>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-push-1 col-md-8 col-md-push-2">
+            <p class="lead">
+              Estaty is a crowd-sourced platform for
+              <abbr
+               title="not just those listed on the market"
+               data-toggle="tooltip"
+               data-placement="top"><i>all</i></abbr>
+              apartments and houses.
+              <br class="visible-lg-block">
+              It accepts submissions from you and presents the data
+              <br class="visible-lg-block">
+              with location and price in your
+              <abbr
+               title="or all over the world!"
+               data-toggle="tooltip"
+               data-placement="right">neighbourhood</abbr>.
+            </p>
+          </div>
+        </div>
+        <a href="#submit" class="btn btn-lg btn-primary">
+          Submit your place now
+        </a>
+      </div>
+    </div>
+    <figure class="cover"><div class="overlay"></div></figure>
+  </header>
+  <form id="submit" class="container" method="post">
+    <div class="row">
+      <div class="col-sm-6 col-sm-push-3">
+        <fieldset>
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"
+                 autocomplete="email"
+                 class="form-control">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="form-group">
+            <label>Do you live in an apartment or a house?</label>
+            <div class="btn-group btn-block">
+              <label class="btn btn-default">
+                <input type="radio" name="primaryType" value="apartment"
+                 class="js-toggle"
+                 data-show=".js-subtypes, .js-apartment-types, .js-floor-number"
+                 data-hide=".js-house-types, .js-floors-count"
+                 required autocomplete="off" autosave>
+                 &nbsp;Apartment
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="primaryType" value="house"
+                 class="js-toggle"
+                 data-show=".js-subtypes, .js-house-types, .js-floors-count"
+                 data-hide=".js-apartment-types, .js-floor-number"
+                 required autocomplete="off">
+                 &nbsp;House
+              </label>
+            </div>
+          </div>
+          <div class="form-group hidden js-subtypes">
+            <label>Choose a subtype if appropiate:</label>
+            <div class="btn-group btn-block js-apartment-types hidden"
+             data-toggle="buttons">
+              <label class="btn btn-default">
+                <input type="radio" name="type" value="studio"
+                 disabled autocomplete="off">
+                Studio
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="type" value="apartment-room"
+                 disabled autocomplete="off">
+                Apartment room
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="type" value="maisonette"
+                 disabled autocomplete="off">
+                Maisonette
+              </label>
+            </div>
+            <div></div>
+            <div class="btn-group btn-block js-house-types hidden"
+             data-toggle="buttons">
+              <label class="btn btn-default">
+                <input type="radio" name="type" value="house"
+                 disabled autocomplete="off">
+                Whole house
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="type" value="house-room"
+                 class="js-toggle"
+                 data-show=".js-floor-number"
+                 data-hide=".js-floors-count"
+                 disabled autocomplete="off">
+                House room
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="type" value="house-floor"
+                 class="js-toggle"
+                 data-show=".js-floor-number"
+                 data-hide=".js-floors-count"
+                 disabled autocomplete="off">
+                House floor
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Do you own it or rent it?</label>
+            <div class="btn-group btn-block" data-toggle="buttons">
+              <label class="btn btn-default active">
+                <input type="radio" name="isRented" value="1"
+                 checked
+                 class="js-toggle"
+                 data-show=".js-rent"
+                 data-hide=".js-price"
+                 required autocomplete="off">
+                 Rent
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="isRented" value="0"
+                 class="js-toggle"
+                 data-show=".js-price"
+                 data-hide=".js-rent"
+                 required autocomplete="off">
+                Own
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="rentPerMonth" class="js-rent">Rent per month</label>
+              <label for="price" class="hidden js-price">Price</label>
+              <div class="form-inline">
+                <div class="form-group js-rent">
+                  <input type="number" name="rentPerMonth" id="rentPerMonth"
+                   required min="1" class="form-control">
+                </div>
+                <div class="form-group hidden js-price">
+                  <input type="number" name="price" id="price" disabled
+                   required min="1" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="currency" class="sr-only">Currency</label>
+                  <select name="currency" id="currency"
+                   required class="form-control">
+                    <option value="USD" selected>USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                  </select>
+                </div>
+              </div>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="country">Country</label>
+                <select name="country" id="country"
+                 required autocomplete="country-name" class="form-control">
+                  <option value="">-- Select a country --</option>
+                  <option value="BG">Bulgaria</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="US">United States</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="region">State / Region</label>
+                <input type="text" name="region" id="region"
+                 required autocomplete="address-level1"
+                 class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" id="city"
+                 required autocomplete="address-level2"
+                 class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="postCode">Post code</label>
+                <input type="text" name="postCode" id="postCode"
+                 required autocomplete="postal-code"
+                 class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address"
+             required autocomplete="address-line1"
+             class="form-control">
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="area">Area</label>
+              <div class="form-inline">
+                <div class="form-group">
+                  <input type="number" name="area" id="area"
+                   min="1" class="form-control" style="width: 135px">
+                </div>
+                <div class="form-group">
+                  <label for="areaUnits" class="sr-only">Area units</label>
+                  <select name="areaUnits" id="areaUnits" class="form-control">
+                    <option value="square feet" selected>square feet</option>
+                    <option value="square meters">square meters</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group js-floor-number">
+                <label for="floorNumber">Floor number</label>
+                <input type="number" name="floorNumber" id="floorNumber"
+                 min="0" class="form-control">
+              </div>
+              <div class="form-group hidden js-floors-count">
+                <label for="floorsCount">Number of floors</label>
+                <input type="number" name="floorsCount" id="floorsCount"
+                 disabled min="1" class="form-control">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="agree" value="1" required>
+            I agree this data will be anonymously shared with others
+          </label>
+        </div>
+        <hr>
+        <div class="text-center">
+          <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script>
+    $('[data-toggle="tooltip"]').tooltip();
+  </script>
+  <script src="js/toggle.js"></script>
+</body>
+</html>
