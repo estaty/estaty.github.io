@@ -1,4 +1,4 @@
-# Estaty AngularJS front-end
+# Estaty front-end
 
 This is a prototype front-end using Parse.com as a back-end.
 
