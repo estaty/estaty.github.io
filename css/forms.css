@@ -1,0 +1,56 @@
+.form-inline-xs .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.form-inline-xs .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.form-inline-xs .form-control-static {
+  display: inline-block;
+}
+
+.form-inline-xs .input-group {
+  display: inline-table;
+  vertical-align: middle;
+
+  .input-group-addon,
+  .input-group-btn,
+  .form-inline-xs .form-control {
+    width: auto;
+  }
+}
+
+.form-inline-xs .input-group > .form-control {
+  width: 100%;
+}
+
+.form-inline-xs .control-label {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.form-inline-xs .radio,
+.form-inline-xs .checkbox {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+
+  label {
+    padding-left: 0;
+  }
+}
+.form-inline-xs .radio input[type="radio"],
+.form-inline-xs .checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 0;
+}
+
+.form-inline-xs .has-feedback .form-control-feedback {
+  top: 0;
+}

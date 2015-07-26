@@ -45,6 +45,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/overlay.css">
   <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
 </head>
 <body>
   <header class="header">
@@ -103,135 +104,176 @@
   </header>
   <form id="submit" class="container" method="post">
     <div class="row">
-      <div class="col-sm-6 col-sm-push-3">
+      <div class="col-sm-12 col-lg-8 col-lg-push-2">
         <fieldset>
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email"
+               autocomplete="email"
+               class="form-control">
+            </div>
+          </div>
+          <p class="help-block">
+            <small>
+              We would only use your email to contact you
+              and allow you to access your properties in the future.
+            </small>
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Property type</legend>
+          <div class="row">
+            <div class="col-sm-6">
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email"
-                 autocomplete="email"
-                 class="form-control">
+                <label>Do you live in an apartment or a house?</label>
+                <div class="btn-group btn-block js-toggle-active-labels">
+                  <label class="btn btn-default active">
+                    <input type="radio" name="primaryType" value="apartment"
+                     class="js-toggle"
+                     checked 
+                     data-show=".js-subtypes, .js-apartment-types, .js-floor-number"
+                     data-hide=".js-house-types, .js-floors-count"
+                     required autocomplete="off" autosave>
+                     &nbsp;Apartment
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="radio" name="primaryType" value="house"
+                     class="js-toggle"
+                     data-show=".js-subtypes, .js-house-types, .js-floors-count"
+                     data-hide=".js-apartment-types, .js-floor-number"
+                     required autocomplete="off">
+                     &nbsp;House
+                  </label>
+                </div>
+              </div>
+              <div class="form-group js-subtypes">
+                <label>Choose a subtype if appropiate:</label>
+                <div class="row js-apartment-types">
+                  <div class="col-xs-5">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="apartment"
+                         autocomplete="off">
+                        &nbsp;Apartment
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="apartment-room"
+                         autocomplete="off">
+                        &nbsp;Apartment room
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-xs-5">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="studio"
+                         autocomplete="off">
+                        &nbsp;Studio
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="maisonette"
+                         autocomplete="off">
+                        &nbsp;Maisonette
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row js-house-types hidden">
+                  <div class="col-xs-5">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="house"
+                         class="js-toggle"
+                         data-show=".js-subtypes, .js-house-types, .js-floors-count"
+                         data-hide=".js-apartment-types, .js-floor-number"
+                         disabled autocomplete="off">
+                        &nbsp;House
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="house-room"
+                         class="js-toggle"
+                         data-show=".js-floor-number"
+                         data-hide=".js-floors-count"
+                         disabled autocomplete="off">
+                        &nbsp;House room
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-xs-5">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="type" value="house-floor"
+                         class="js-toggle"
+                         data-show=".js-floor-number"
+                         data-hide=".js-floors-count"
+                         disabled autocomplete="off">
+                        &nbsp;House floor
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label>Do you own it or rent it?</label>
+                    <div class="btn-group btn-block js-toggle-active-labels">
+                      <label class="btn btn-default active">
+                        <input type="radio" name="isRented" value="1"
+                         checked
+                         class="js-toggle"
+                         data-show=".js-rent"
+                         data-hide=".js-price"
+                         required autocomplete="off">
+                         Rent
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="radio" name="isRented" value="0"
+                         class="js-toggle"
+                         data-show=".js-price"
+                         data-hide=".js-rent"
+                         required autocomplete="off">
+                        Own
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-8">
+                  <div class="form-group">
+                    <label for="rentPerMonth" class="js-rent">Rent per month</label>
+                    <label for="price" class="hidden js-price">Price</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <label for="currency" class="sr-only">Currency</label>
+                        <select name="currency" id="currency"
+                         required>
+                          <option value="USD" selected>USD</option>
+                          <option value="EUR">EUR</option>
+                          <option value="GBP">GBP</option>
+                        </select>
+                      </div>
+                      <input type="number" name="rentPerMonth" id="rentPerMonth"
+                       required min="1" class="form-control js-rent">
+                      <input type="number" name="price" id="price" disabled
+                       required min="1" class="form-control hidden js-price">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </fieldset>
         <fieldset>
-          <div class="form-group">
-            <label>Do you live in an apartment or a house?</label>
-            <div class="btn-group btn-block">
-              <label class="btn btn-default">
-                <input type="radio" name="primaryType" value="apartment"
-                 class="js-toggle"
-                 data-show=".js-subtypes, .js-apartment-types, .js-floor-number"
-                 data-hide=".js-house-types, .js-floors-count"
-                 required autocomplete="off" autosave>
-                 &nbsp;Apartment
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="primaryType" value="house"
-                 class="js-toggle"
-                 data-show=".js-subtypes, .js-house-types, .js-floors-count"
-                 data-hide=".js-apartment-types, .js-floor-number"
-                 required autocomplete="off">
-                 &nbsp;House
-              </label>
-            </div>
-          </div>
-          <div class="form-group hidden js-subtypes">
-            <label>Choose a subtype if appropiate:</label>
-            <div class="btn-group btn-block js-apartment-types hidden"
-             data-toggle="buttons">
-              <label class="btn btn-default">
-                <input type="radio" name="type" value="studio"
-                 disabled autocomplete="off">
-                Studio
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="type" value="apartment-room"
-                 disabled autocomplete="off">
-                Apartment room
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="type" value="maisonette"
-                 disabled autocomplete="off">
-                Maisonette
-              </label>
-            </div>
-            <div></div>
-            <div class="btn-group btn-block js-house-types hidden"
-             data-toggle="buttons">
-              <label class="btn btn-default">
-                <input type="radio" name="type" value="house"
-                 disabled autocomplete="off">
-                Whole house
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="type" value="house-room"
-                 class="js-toggle"
-                 data-show=".js-floor-number"
-                 data-hide=".js-floors-count"
-                 disabled autocomplete="off">
-                House room
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="type" value="house-floor"
-                 class="js-toggle"
-                 data-show=".js-floor-number"
-                 data-hide=".js-floors-count"
-                 disabled autocomplete="off">
-                House floor
-              </label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Do you own it or rent it?</label>
-            <div class="btn-group btn-block" data-toggle="buttons">
-              <label class="btn btn-default active">
-                <input type="radio" name="isRented" value="1"
-                 checked
-                 class="js-toggle"
-                 data-show=".js-rent"
-                 data-hide=".js-price"
-                 required autocomplete="off">
-                 Rent
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="isRented" value="0"
-                 class="js-toggle"
-                 data-show=".js-price"
-                 data-hide=".js-rent"
-                 required autocomplete="off">
-                Own
-              </label>
-            </div>
-          </div>
-          <div class="form-group">
-              <label for="rentPerMonth" class="js-rent">Rent per month</label>
-              <label for="price" class="hidden js-price">Price</label>
-              <div class="form-inline">
-                <div class="form-group js-rent">
-                  <input type="number" name="rentPerMonth" id="rentPerMonth"
-                   required min="1" class="form-control">
-                </div>
-                <div class="form-group hidden js-price">
-                  <input type="number" name="price" id="price" disabled
-                   required min="1" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="currency" class="sr-only">Currency</label>
-                  <select name="currency" id="currency"
-                   required class="form-control">
-                    <option value="USD" selected>USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                  </select>
-                </div>
-              </div>
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
+          <legend>Location</legend>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
@@ -272,31 +314,35 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" name="address" id="address"
-             required autocomplete="address-line1"
-             class="form-control">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="address">Street address</label>
+                <input type="text" name="address" id="address"
+                 required autocomplete="address-line1"
+                 class="form-control">
+              </div>
+            </div>
           </div>
           <hr>
           <div class="row">
-            <div class="col-sm-6">
-              <label for="area">Area</label>
-              <div class="form-inline">
-                <div class="form-group">
+            <div class="col-sm-5">
+              <div class="form-group">
+                <label for="area">Area</label>
+                <div class="input-group">
                   <input type="number" name="area" id="area"
-                   min="1" class="form-control" style="width: 135px">
-                </div>
-                <div class="form-group">
-                  <label for="areaUnits" class="sr-only">Area units</label>
-                  <select name="areaUnits" id="areaUnits" class="form-control">
-                    <option value="square feet" selected>square feet</option>
-                    <option value="square meters">square meters</option>
-                  </select>
+                   min="1" class="form-control">
+                  <div class="input-group-addon">
+                    <label for="areaUnits" class="sr-only">Area units</label>
+                    <select name="areaUnits" id="areaUnits">
+                      <option value="square meters" selected>square meters</option>
+                      <option value="square feet">square feet</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-sm-offset-1">
               <div class="form-group js-floor-number">
                 <label for="floorNumber">Floor number</label>
                 <input type="number" name="floorNumber" id="floorNumber"
